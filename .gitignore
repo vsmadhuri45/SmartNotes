@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+database/*.db
+
+# Environment variables
+.env
+.env.local
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# Data files (don't commit user data)
+data/raw_notes/*.txt
+data/raw_notes/*.pdf
+data/training_data/*.json
+data/structured_notes/*.md
+
+# Keep folder structure but not contents
+!data/raw_notes/.gitkeep
+!data/structured_notes/.gitkeep
+!data/training_data/.gitkeep
+
+# Models (large files)
+*.h5
+*.pkl
+*.joblib
+models/*.pt
+
+# MacOS
+.DS_Store
