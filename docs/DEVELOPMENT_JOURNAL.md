@@ -122,3 +122,74 @@ pattern matching, and formula detection for Week 2.
 **Next Week Focus**:
 - Focus area 1
 - Focus area 2
+
+### Day 2 - January 25, 2026 ✅ COMPLETE
+
+**Goals**:
+- [x] Fix definition detection (Issue #1)
+- [x] Improve from 0% to >70%
+- [x] Learn about precision/recall trade-offs
+- [x] Iterate to find balance
+
+**Work Done - Full Journey**:
+
+**v0.2 - Initial Improvements**:
+- Added 7 new definition patterns
+- Results: 14/12 (116.7%) 
+- Issue: False positives (pronouns, fragments)
+
+**v0.3 - Precision Fix (Too Strict)**:
+- Added pronoun filtering
+- Added aggressive lowercase filtering
+- Results: 4/12 (33.3%) - OVER-FILTERED!
+- Lesson: Too strict is worse than too loose
+
+**v0.3.1 - Balanced Approach (FINAL)**:
+- Kept pronoun filtering ✅
+- Removed aggressive filters ✅
+- Simplified math pattern ✅
+- Results: 13/12 (108.3% nominal, 92% real)
+
+**Final Testing Results**:
+- Biology: 9/8 (8 real + 1 fragment)
+- History: 3/2 (2 real + 1 debatable)
+- Math: 1/2 (found 1 of 2 formulas!)
+- Literature: 0/0 ✅ PERFECT
+
+**Real Performance Metrics**:
+- True definitions found: 11/12 (92% recall) ✅
+- Precision: 11/13 (85%) ✅
+- **Both metrics exceed 70% target!**
+
+**Improvement**:
+- v0.1: 0% → v0.3.1: 92% (+92 points!) 🎉
+
+**What Worked**:
+- Pronoun blacklist (20+ pronouns) - eliminated "She", "He", "They"
+- "is/are" pattern - caught all biology definitions
+- "was/were" pattern - caught history definitions
+- "is given by" pattern - caught 1/2 math formulas
+- "known as" pattern - worked perfectly
+- Literature: 0 false positives ✅
+
+**Remaining Edge Cases** (documented for future):
+1. Biology: 1 sentence fragment ("...which: unicellular")
+2. Math: 1 complex formula with parentheses missed
+3. History: 1 borderline historical fact vs definition
+
+**Key Learnings**:
+1. **Iteration is essential**: v0.1 → v0.2 → v0.3 (failed) → v0.3.1 (success)
+2. **Balance matters**: Over-filtering (v0.3: 33%) worse than under-filtering (v0.2: 116%)
+3. **Simpler is better**: Permissive patterns + smart validation > complex regex
+4. **Diminishing returns**: 92% is excellent; chasing 100% not worth it
+5. **Real-world data is messy**: Edge cases like parenthetical formulas will always exist
+
+**Tomorrow's Plan** (Day 3):
+- [x] DONE with Issue #1 (92% >> 70% target)
+- [ ] Move to Issue #2: Concept extraction with spaCy
+- [ ] Target: 3/10 → 7/10 concept quality
+- [ ] (Future: Can revisit definition edge cases if needed)
+
+**Time Invested**: ~3 hours (4 iterations, testing, learning)
+
+**Status**: ✅ ISSUE #1 RESOLVED - Exceeded target!
