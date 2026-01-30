@@ -1,0 +1,42 @@
+{
+  "id": "hist_004",
+  "title": "Cold War",
+  "type": "lecture",
+  "quality": "high",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "Cold War",
+        "definition": "period of geopolitical tension between Soviet Union and U.S., 1947-1991"
+      },
+      {
+        "term": "Iron Curtain",
+        "definition": "division between Western and Eastern Europe under Soviet control"
+      },
+      {
+        "term": "NATO",
+        "definition": "military alliance formed in 1949 for collective defense"
+      },
+      {
+        "term": "Warsaw Pact",
+        "definition": "Soviet bloc response to NATO, formed 1955"
+      }
+    ],
+    "concepts": [
+      "Cold War",
+      "Iron Curtain",
+      "NATO",
+      "Warsaw Pact",
+      "Korean War",
+      "Cuban Missile Crisis",
+      "Vietnam War",
+      "Berlin Wall",
+      "Winston Churchill",
+      "Soviet Union",
+      "proxy war",
+      "nuclear war",
+      "communist",
+      "democratic"
+    ]
+  }
+}

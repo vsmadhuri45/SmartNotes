@@ -1,0 +1,61 @@
+{
+  "id": "bio_005",
+  "title": "Ecology",
+  "type": "lecture",
+  "quality": "high",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "Ecology",
+        "definition": "study of interactions between organisms and environment"
+      },
+      {
+        "term": "Population",
+        "definition": "group of individuals of same species in same area"
+      },
+      {
+        "term": "Community",
+        "definition": "all populations of different species living together"
+      },
+      {
+        "term": "Ecosystem",
+        "definition": "community plus all abiotic factors"
+      },
+      {
+        "term": "Biome",
+        "definition": "large geographic region with specific climate and organisms"
+      },
+      {
+        "term": "Food Chain",
+        "definition": "linear sequence showing energy transfer"
+      },
+      {
+        "term": "Producers",
+        "definition": "autotrophs that make own food through photosynthesis"
+      },
+      {
+        "term": "Consumers",
+        "definition": "heterotrophs that obtain energy by eating organisms"
+      },
+      {
+        "term": "Decomposers",
+        "definition": "organisms that break down dead organic matter"
+      }
+    ],
+    "concepts": [
+      "Ecology",
+      "Population",
+      "Community",
+      "Ecosystem",
+      "Biome",
+      "Food Chain",
+      "Producers",
+      "Consumers",
+      "Decomposers",
+      "autotrophs",
+      "heterotrophs",
+      "abiotic factors",
+      "energy transfer"
+    ]
+  }
+}

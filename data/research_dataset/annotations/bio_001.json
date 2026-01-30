@@ -1,0 +1,46 @@
+{
+  "id": "bio_001",
+  "title": "Cell Structure",
+  "type": "lecture",
+  "quality": "high",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "Prokaryotic Cells",
+        "definition": "cells that lack a membrane-bound nucleus and other organelles"
+      },
+      {
+        "term": "Eukaryotic Cells",
+        "definition": "cells with a true nucleus enclosed by a membrane"
+      },
+      {
+        "term": "plasma membrane",
+        "definition": "selectively permeable barrier composed of phospholipid bilayer"
+      },
+      {
+        "term": "Mitochondria",
+        "definition": "powerhouse of the cell, responsible for ATP production"
+      },
+      {
+        "term": "Ribosomes",
+        "definition": "molecular machines that synthesize proteins by translating mRNA"
+      },
+      {
+        "term": "Endoplasmic Reticulum",
+        "definition": "network of membranes involved in protein and lipid synthesis"
+      }
+    ],
+    "concepts": [
+      "Prokaryotic Cells",
+      "Eukaryotic Cells",
+      "plasma membrane",
+      "Mitochondria",
+      "Ribosomes",
+      "Endoplasmic Reticulum",
+      "nucleus",
+      "organelles",
+      "phospholipid bilayer",
+      "ATP production"
+    ]
+  }
+}

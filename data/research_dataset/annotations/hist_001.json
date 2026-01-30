@@ -1,0 +1,41 @@
+{
+  "id": "hist_001",
+  "title": "French Revolution",
+  "type": "lecture",
+  "quality": "high",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "French Revolution",
+        "definition": "period of radical political and social change in France, 1789-1799"
+      },
+      {
+        "term": "Estates-General",
+        "definition": "representative assembly with three estates"
+      },
+      {
+        "term": "Declaration of the Rights of Man",
+        "definition": "document proclaiming liberty, equality, and fraternity"
+      },
+      {
+        "term": "Reign of Terror",
+        "definition": "period of extreme violence from 1793-1794"
+      }
+    ],
+    "concepts": [
+      "French Revolution",
+      "Estates-General",
+      "Bastille",
+      "Declaration of the Rights of Man",
+      "Reign of Terror",
+      "Napoleon Bonaparte",
+      "Maximilien Robespierre",
+      "Jacobins",
+      "feudalism",
+      "democracy",
+      "First Estate",
+      "Second Estate",
+      "Third Estate"
+    ]
+  }
+}

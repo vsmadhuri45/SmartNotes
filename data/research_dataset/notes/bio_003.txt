@@ -1,0 +1,16 @@
+DNA and Genetics - Lecture Notes
+
+DNA (deoxyribonucleic acid): the hereditary material in organisms. Contains genetic instructions.
+
+Structure - DNA is a double helix structure discovered by Watson and Crick in 1953.
+
+Nucleotides are the building blocks of DNA. Each has three parts:
+- Phosphate group
+- Deoxyribose sugar  
+- Nitrogenous base (A, T, G, or C)
+
+Base pairing rules: Adenine pairs with Thymine (A-T), Guanine pairs with Cytosine (G-C). These are held together by hydrogen bonds.
+
+Genes are segments of DNA that code for specific proteins.
+
+Chromosomes: structures made of DNA and proteins. Humans have 23 pairs.

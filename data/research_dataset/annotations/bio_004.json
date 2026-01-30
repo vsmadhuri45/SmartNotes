@@ -1,0 +1,38 @@
+{
+  "id": "bio_004",
+  "title": "Evolution",
+  "type": "study",
+  "quality": "medium",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "Natural Selection",
+        "definition": "process where organisms better adapted to environment survive and reproduce"
+      },
+      {
+        "term": "Adaptation",
+        "definition": "trait that increases fitness in particular environment"
+      },
+      {
+        "term": "Speciation",
+        "definition": "formation of new species"
+      },
+      {
+        "term": "Homologous structures",
+        "definition": "similar structures in different species due to common ancestry"
+      }
+    ],
+    "concepts": [
+      "Natural Selection",
+      "Charles Darwin",
+      "Adaptation",
+      "Speciation",
+      "Fossil record",
+      "Homologous structures",
+      "reproductive isolation",
+      "fitness",
+      "heritable",
+      "common ancestry"
+    ]
+  }
+}

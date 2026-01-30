@@ -1,0 +1,39 @@
+{
+  "id": "hist_003",
+  "title": "Industrial Revolution",
+  "type": "study",
+  "quality": "medium",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "Industrial Revolution",
+        "definition": "transition to new manufacturing processes, 1760-1840"
+      },
+      {
+        "term": "Urbanization",
+        "definition": "mass migration from rural areas to cities"
+      },
+      {
+        "term": "Factory system",
+        "definition": "centralized production in factories"
+      },
+      {
+        "term": "Labor unions",
+        "definition": "organizations formed by workers to protect rights"
+      }
+    ],
+    "concepts": [
+      "Industrial Revolution",
+      "Steam engine",
+      "James Watt",
+      "Spinning jenny",
+      "Telegraph",
+      "Samuel Morse",
+      "Urbanization",
+      "Factory system",
+      "Child labor",
+      "Labor unions",
+      "manufacturing"
+    ]
+  }
+}

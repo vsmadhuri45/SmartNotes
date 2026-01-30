@@ -1,0 +1,40 @@
+{
+  "id": "bio_003",
+  "title": "DNA Structure",
+  "type": "lecture",
+  "quality": "medium",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "DNA",
+        "definition": "hereditary material in organisms containing genetic instructions"
+      },
+      {
+        "term": "Nucleotides",
+        "definition": "building blocks of DNA with phosphate, sugar, and base"
+      },
+      {
+        "term": "Genes",
+        "definition": "segments of DNA that code for specific proteins"
+      },
+      {
+        "term": "Chromosomes",
+        "definition": "structures made of DNA and proteins"
+      }
+    ],
+    "concepts": [
+      "DNA",
+      "double helix",
+      "Nucleotides",
+      "Genes",
+      "Chromosomes",
+      "Watson and Crick",
+      "base pairing",
+      "Adenine",
+      "Thymine",
+      "Guanine",
+      "Cytosine",
+      "hydrogen bonds"
+    ]
+  }
+}

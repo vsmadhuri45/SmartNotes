@@ -1,0 +1,20 @@
+{
+  "dataset_name": "SmartNotes Research Dataset",
+  "version": "1.0",
+  "created": "2026-01-26",
+  "total_notes": 10,
+  "domains": {
+    "biology": 5,
+    "history": 5
+  },
+  "note_types": [
+    "lecture",
+    "textbook",
+    "study"
+  ],
+  "quality_levels": [
+    "high",
+    "medium",
+    "low"
+  ]
+}

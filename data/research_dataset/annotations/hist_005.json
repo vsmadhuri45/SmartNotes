@@ -1,0 +1,45 @@
+{
+  "id": "hist_005",
+  "title": "Ancient Rome",
+  "type": "textbook",
+  "quality": "high",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "Roman Republic",
+        "definition": "form of government from 509 BC to 27 BC"
+      },
+      {
+        "term": "Senate",
+        "definition": "governing body of aristocrats who made laws"
+      },
+      {
+        "term": "Patricians",
+        "definition": "wealthy landowner class with political power"
+      },
+      {
+        "term": "Plebeians",
+        "definition": "common citizens - farmers, merchants, craftsmen"
+      },
+      {
+        "term": "Pax Romana",
+        "definition": "period of relative peace and stability, 200 years"
+      }
+    ],
+    "concepts": [
+      "Roman Republic",
+      "Senate",
+      "Patricians",
+      "Plebeians",
+      "Julius Caesar",
+      "Augustus Caesar",
+      "Pax Romana",
+      "Colosseum",
+      "Christianity",
+      "Constantine",
+      "Fall of Rome",
+      "Germanic tribes",
+      "Roman Empire"
+    ]
+  }
+}

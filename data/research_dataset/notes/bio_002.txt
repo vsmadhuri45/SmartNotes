@@ -1,0 +1,14 @@
+Photosynthesis
+
+Photosynthesis is the process by which plants convert light energy into chemical energy stored in glucose.
+
+The overall equation for photosynthesis is given by:
+6CO2 + 6H2O + light energy → C6H12O6 + 6O2
+
+Chloroplasts: organelles where photosynthesis occurs in plant cells. Contains chlorophyll pigment.
+
+Light-dependent reactions occur in the thylakoid membranes. They produce ATP and NADPH using light energy.
+
+Calvin Cycle: also known as light-independent reactions or dark reactions. Takes place in the stroma of chloroplasts. Uses ATP and NADPH to fix CO2 into glucose.
+
+Stomata are pores on leaf surfaces that regulate gas exchange, allowing CO2 in and O2 out.

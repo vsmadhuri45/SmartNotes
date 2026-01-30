@@ -1,0 +1,44 @@
+{
+  "id": "bio_002",
+  "title": "Photosynthesis",
+  "type": "textbook",
+  "quality": "high",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "Photosynthesis",
+        "definition": "process by which plants convert light energy into chemical energy stored in glucose"
+      },
+      {
+        "term": "Chloroplasts",
+        "definition": "organelles where photosynthesis occurs in plant cells"
+      },
+      {
+        "term": "Light-dependent reactions",
+        "definition": "occur in thylakoid membranes, produce ATP and NADPH"
+      },
+      {
+        "term": "Calvin Cycle",
+        "definition": "light-independent reactions taking place in stroma"
+      },
+      {
+        "term": "Stomata",
+        "definition": "pores on leaf surfaces that regulate gas exchange"
+      }
+    ],
+    "concepts": [
+      "Photosynthesis",
+      "Chloroplasts",
+      "Calvin Cycle",
+      "Stomata",
+      "chlorophyll",
+      "thylakoid",
+      "stroma",
+      "light-dependent reactions",
+      "ATP",
+      "NADPH",
+      "glucose",
+      "CO2 fixation"
+    ]
+  }
+}

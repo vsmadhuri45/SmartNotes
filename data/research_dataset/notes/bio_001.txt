@@ -1,0 +1,13 @@
+Cell Structure and Function
+
+Prokaryotic Cells: cells that lack a membrane-bound nucleus and other organelles. Examples include bacteria and archaea.
+
+Eukaryotic Cells: cells with a true nucleus enclosed by a membrane. Found in animals, plants, fungi, and protists.
+
+The plasma membrane is a selectively permeable barrier composed of phospholipid bilayer. It regulates what enters and exits the cell.
+
+Mitochondria: known as the powerhouse of the cell, responsible for ATP production through cellular respiration.
+
+Ribosomes are molecular machines that synthesize proteins by translating mRNA.
+
+Endoplasmic Reticulum: network of membranes involved in protein and lipid synthesis. Two types exist - rough ER (with ribosomes) and smooth ER (without ribosomes).

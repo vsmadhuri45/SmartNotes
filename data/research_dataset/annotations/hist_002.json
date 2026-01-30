@@ -1,0 +1,50 @@
+{
+  "id": "hist_002",
+  "title": "World War II",
+  "type": "textbook",
+  "quality": "high",
+  "ground_truth": {
+    "definitions": [
+      {
+        "term": "World War II",
+        "definition": "global conflict from 1939 to 1945"
+      },
+      {
+        "term": "Axis Powers",
+        "definition": "Germany, Italy, and Japan"
+      },
+      {
+        "term": "Allied Powers",
+        "definition": "Britain, France, Soviet Union, and United States"
+      },
+      {
+        "term": "Blitzkrieg",
+        "definition": "German military tactic meaning lightning war"
+      },
+      {
+        "term": "Holocaust",
+        "definition": "systematic genocide of six million Jews by Nazi Germany"
+      },
+      {
+        "term": "Manhattan Project",
+        "definition": "secret U.S. program to develop atomic weapons"
+      }
+    ],
+    "concepts": [
+      "World War II",
+      "Axis Powers",
+      "Allied Powers",
+      "Blitzkrieg",
+      "D-Day",
+      "Holocaust",
+      "Manhattan Project",
+      "Adolf Hitler",
+      "Benito Mussolini",
+      "Hiroshima",
+      "Nagasaki",
+      "V-E Day",
+      "V-J Day",
+      "Normandy"
+    ]
+  }
+}
