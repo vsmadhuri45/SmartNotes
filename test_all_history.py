@@ -3,12 +3,12 @@ Test HistoryProcessor on ALL 5 history notes
 This reveals if we overfitted to hist_001 or discovered real patterns
 """
 
-from src.note_processor.history_processor import HistoryProcessor
+from src.note_processor.unified_processor import UnifiedProcessor
 import json
 
 def test_all_history_notes():
     """Test on all 5 history notes to check generalization."""
-    processor = HistoryProcessor()
+    processor = UnifiedProcessor()
     
     history_notes = [
         'hist_001',  # French Revolution (what we tuned on)

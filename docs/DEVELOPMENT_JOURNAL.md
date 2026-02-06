@@ -679,3 +679,44 @@ Week 1 End:
 
 **Version**: Development Journal v1.4
 **Last Updated**: Day 4 (January 27, 2026)
+
+### Day 9 - February 5, 2026 ✅
+
+**Mission**: Week 2 validation and completion
+
+**Goals**:
+- [x] Test biology performance (ensure no regression)
+- [x] Test history performance (validate v0.7 results)
+- [x] Calculate overall system performance
+- [x] Fix any issues discovered
+- [x] Close out Week 2
+
+**Work Done**:
+- Created UnifiedProcessor v0.8 (all 13 patterns)
+- Discovered duplicate extraction issue
+- Fixed with smart normalization (_normalize_term)
+- Validated across all 10 notes
+
+**Final Results (v0.8 Unified)**:
+- Biology: 90.2% F1 (+15.9pp from v0.3.1)
+- History: 75.7% F1 (+53.9pp from v0.3.1)
+- Overall: 83.0% F1 (+35.0pp from v0.3.1)
+- Domain gap: 14.5pp (reduced from 52.5pp!)
+
+**Key Achievements**:
+- ✅ History target EXCEEDED (75.7% > 70%)
+- ✅ Biology performance IMPROVED (74.3% → 90.2%)
+- ✅ Domain gap REDUCED by 73% (52.5pp → 14.5pp)
+- ✅ Both domains performing excellently
+
+**Technical Fixes**:
+- Fixed duplicate extraction ("The X" vs "X")
+- Added _normalize_term() for smart deduplication
+- Maintained all 13 patterns (9 biology + 4 history)
+
+**Comparison to v0.7**:
+- v0.7: Biology 63.6%, History 75.4% (trade-off)
+- v0.8: Biology 90.2%, History 75.7% (both improved!)
+
+**Status**: Week 2 ✅ COMPLETE
+**Next**: Week 3 - Dataset expansion (10 → 40 notes)
