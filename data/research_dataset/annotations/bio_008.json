@@ -1,0 +1,7 @@
+{"id": "bio_008", "domain": "biology", "ground_truth": {"definitions": [
+  {"term": "Circulatory System", "definition": "network transporting blood throughout the body"},
+  {"term": "Neurons", "definition": "specialized cells transmitting electrical signals"},
+  {"term": "Homeostasis", "definition": "process maintaining stable internal conditions"},
+  {"term": "Enzymes", "definition": "biological catalysts speeding up chemical reactions"},
+  {"term": "Hormones", "definition": "chemical messengers regulating body functions"}
+]}}

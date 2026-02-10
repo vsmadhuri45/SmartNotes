@@ -1,0 +1,7 @@
+{"id": "lit_008", "domain": "literature", "ground_truth": {"definitions": [
+  {"term": "Epic", "definition": "long narrative poem celebrating heroic deeds"},
+  {"term": "Myth", "definition": "traditional story explaining natural phenomena or origins"},
+  {"term": "Hubris", "definition": "excessive pride leading to a character's downfall"},
+  {"term": "Allegory", "definition": "narrative where characters represent abstract ideas"},
+  {"term": "Deity", "definition": "god or goddess worshipped in mythology"}
+]}}

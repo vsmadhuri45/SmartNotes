@@ -1,0 +1,15 @@
+Set Theory and Logic
+
+A set is a collection of distinct objects considered as a single entity.
+
+The union of two sets is the set containing all elements from both sets combined.
+
+The intersection is the set containing only elements that appear in both sets simultaneously.
+
+A subset is a set whose elements are all contained within another larger set.
+
+Complement is the set of all elements not contained in a given set within the universal set.
+
+A proposition is a statement that is either true or false but not both.
+
+Logical implication is a conditional statement where one proposition follows from another.

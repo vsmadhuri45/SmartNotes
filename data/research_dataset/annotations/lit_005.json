@@ -1,0 +1,15 @@
+{
+  "id": "lit_005",
+  "title": "Rhetoric and Persuasion",
+  "domain": "literature",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Rhetoric", "definition": "art of effective persuasive speaking and writing"},
+      {"term": "Ethos", "definition": "appeal to credibility or character"},
+      {"term": "Pathos", "definition": "appeal to emotions of the audience"},
+      {"term": "Logos", "definition": "appeal to logic and reason"},
+      {"term": "Thesis", "definition": "central argument of an essay or speech"},
+      {"term": "Hyperbole", "definition": "deliberate exaggeration for emphasis"}
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{"id": "hist_008", "domain": "history", "ground_truth": {"definitions": [
+  {"term": "Imperialism", "definition": "policy of extending power through military force"},
+  {"term": "Nationalism", "definition": "extreme pride in one's nation leading to rivalry"},
+  {"term": "Treaty of Versailles", "definition": "peace agreement ending World War I in 1919"},
+  {"term": "Trench Warfare", "definition": "combat where armies fought from fortified ditches"},
+  {"term": "Armistice", "definition": "agreement to stop fighting"}
+]}}

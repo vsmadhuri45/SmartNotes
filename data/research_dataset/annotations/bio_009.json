@@ -1,0 +1,7 @@
+{"id": "bio_009", "domain": "biology", "ground_truth": {"definitions": [
+  {"term": "Photosynthesis", "definition": "process converting sunlight into glucose and oxygen"},
+  {"term": "Chlorophyll", "definition": "green pigment absorbing light energy for photosynthesis"},
+  {"term": "Transpiration", "definition": "process releasing water vapor through leaves"},
+  {"term": "Pollination", "definition": "transfer of pollen from male to female plant parts"},
+  {"term": "Osmosis", "definition": "movement of water through semipermeable membrane"}
+]}}

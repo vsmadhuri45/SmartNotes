@@ -1,0 +1,7 @@
+{"id": "lit_006", "domain": "literature", "ground_truth": {"definitions": [
+  {"term": "Novel", "definition": "extended work of prose fiction with complex characters"},
+  {"term": "Setting", "definition": "time, place, and environment of a story"},
+  {"term": "Round Character", "definition": "fully developed character with complex motivations"},
+  {"term": "Flat Character", "definition": "simple one-dimensional character with few traits"},
+  {"term": "Point Of View", "definition": "narrative perspective from which story is told"}
+]}}

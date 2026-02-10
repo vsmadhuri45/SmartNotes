@@ -1,0 +1,15 @@
+Matrices and Linear Algebra
+
+A matrix is a rectangular array of numbers arranged in rows and columns.
+
+A vector is a mathematical object with both magnitude and direction, represented as an ordered list.
+
+The determinant is a scalar value calculated from a matrix that describes certain properties.
+
+An eigenvalue is a scalar that indicates how much a linear transformation stretches a vector.
+
+Linear independence means no vector in a set can be written as a combination of the others.
+
+The transpose is a matrix formed by swapping the rows and columns of the original matrix.
+
+Scalar multiplication is the operation of multiplying every element of a matrix by a single number.

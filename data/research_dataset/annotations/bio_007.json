@@ -1,0 +1,8 @@
+{"id": "bio_007", "domain": "biology", "ground_truth": {"definitions": [
+  {"term": "Ecosystem", "definition": "community of living organisms interacting with environment"},
+  {"term": "Food Chain", "definition": "linear sequence showing energy transfer between organisms"},
+  {"term": "Producers", "definition": "organisms that make their own food through photosynthesis"},
+  {"term": "Decomposers", "definition": "organisms that break down dead organic matter"},
+  {"term": "Biodiversity", "definition": "variety of life forms within a given ecosystem"},
+  {"term": "Habitat", "definition": "natural environment where an organism lives"}
+]}}

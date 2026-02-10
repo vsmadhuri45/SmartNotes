@@ -1,0 +1,15 @@
+{
+  "id": "lit_001",
+  "title": "Literary Analysis",
+  "domain": "literature",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Theme", "definition": "central message of a literary work"},
+      {"term": "Protagonist", "definition": "main character in a story"},
+      {"term": "Antagonist", "definition": "character opposing the protagonist"},
+      {"term": "Metaphor", "definition": "figure of speech describing one thing as another"},
+      {"term": "Symbolism", "definition": "objects representing abstract ideas"},
+      {"term": "Motif", "definition": "recurring element with symbolic significance"}
+    ]
+  }
+}

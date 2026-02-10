@@ -1,0 +1,17 @@
+Geometry: Triangles
+
+A triangle is a polygon with three sides and three angles that sum to 180 degrees.
+
+The Pythagorean theorem states that in a right triangle, a² + b² = c², where c is the hypotenuse.
+
+The hypotenuse is the longest side of a right triangle, opposite the right angle.
+
+Area: the amount of space inside a two-dimensional shape. For triangles, Area = (1/2) × base × height.
+
+An acute triangle is a triangle where all three angles are less than 90 degrees.
+
+The perimeter is the total distance around the outside of a shape.
+
+Congruent triangles are triangles that are identical in shape and size.
+
+Similarity: two triangles are similar if their angles are equal and sides are proportional.

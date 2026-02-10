@@ -1,0 +1,17 @@
+Statistics and Probability
+
+Statistics is the branch of mathematics dealing with collection, analysis, and interpretation of data.
+
+The mean is the average of a dataset, calculated by dividing the sum of values by the count.
+
+Median: the middle value in an ordered dataset. Splits data into two equal halves.
+
+The mode is the value that appears most frequently in a dataset.
+
+Standard deviation is a measure of how spread out values are from the mean.
+
+Probability: the likelihood of an event occurring, expressed as a value between 0 and 1.
+
+A sample is a subset of a population used to draw conclusions about the whole group.
+
+Variance: the average of squared differences from the mean. Measures data spread.

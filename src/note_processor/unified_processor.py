@@ -69,6 +69,8 @@ class UnifiedProcessor:
         
         # HISTORY PATTERNS (10-13)
         
+        # HISTORY PATTERNS (10-13)
+        
         p10 = r'The\s+([A-Z][a-z]+(?:\s+(?:of|the|and|in)\s+[A-Z][a-z]+|\s+[A-Z][a-z]+)*)\s+(?:was|were)\s+(?:a|an|the)?\s*(.+?)(?:\.|Led by|Marked|Involved)'
         for term, defn in re.findall(p10, text):
             if self._validate(term, defn, 10):
@@ -88,6 +90,22 @@ class UnifiedProcessor:
         for term, defn in re.findall(p13, text, re.MULTILINE):
             if self._validate(term, defn, 15):
                 self._add(definitions, term, defn, 'simple_colon')
+                
+        # Pattern 14: "A/An X is Y" (math and literature style!)
+        # Catches: "A derivative is...", "A metaphor is...", "A triangle is..."
+        p14 = r'[Aa]n?\s+([a-z][a-z]+(?:\s+[a-z]+)*)\s+(?:is|are)\s+(?:a|an|the)?\s*(.+?)(?:\.|$)'
+        for term, defn in re.findall(p14, text, re.MULTILINE):
+            term_capitalized = term.strip().title()
+            if len(term) >= 3 and len(defn) >= 10:
+                if not any(p in term.lower().split() for p in self.pronouns):
+                    self._add(definitions, term_capitalized, defn.strip(), 'a_an_is')
+        
+        # Pattern 15: "The X is/are Y" (present tense with article)
+        # Catches: "The mean is...", "The limit is...", "The chain rule is..."
+        p15 = r'The\s+([A-Za-z][a-z]+(?:\s+[a-z]+)*)\s+(?:is|are)\s+(?:a|an|the)?\s*(.+?)(?:\.|$)'
+        for term, defn in re.findall(p15, text, re.MULTILINE):
+            if self._validate(term, defn, 10):
+                self._add(definitions, term, defn, 'the_is_are')
         
         return definitions
     

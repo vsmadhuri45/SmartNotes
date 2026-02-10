@@ -1,0 +1,8 @@
+{"id": "bio_010", "domain": "biology", "ground_truth": {"definitions": [
+  {"term": "Evolution", "definition": "gradual change in inherited characteristics over generations"},
+  {"term": "Natural Selection", "definition": "process where better adapted organisms survive and reproduce"},
+  {"term": "Adaptation", "definition": "trait increasing organism fitness in its environment"},
+  {"term": "Species", "definition": "group of organisms that can interbreed"},
+  {"term": "Extinction", "definition": "permanent disappearance of a species"},
+  {"term": "Variation", "definition": "differences in traits among individuals of same species"}
+]}}

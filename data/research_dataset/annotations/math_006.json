@@ -1,0 +1,7 @@
+{"id": "math_006", "domain": "math", "ground_truth": {"definitions": [
+  {"term": "Function", "definition": "relationship mapping each input to exactly one output"},
+  {"term": "Domain", "definition": "set of all possible input values for a function"},
+  {"term": "Range", "definition": "set of all possible output values of a function"},
+  {"term": "Asymptote", "definition": "line that a graph approaches but never touches"},
+  {"term": "Y-Intercept", "definition": "point where graph crosses the vertical axis"}
+]}}

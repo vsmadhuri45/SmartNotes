@@ -1,0 +1,7 @@
+{"id": "math_009", "domain": "math", "ground_truth": {"definitions": [
+  {"term": "Matrix", "definition": "rectangular array of numbers in rows and columns"},
+  {"term": "Vector", "definition": "mathematical object with both magnitude and direction"},
+  {"term": "Determinant", "definition": "scalar value calculated from a matrix"},
+  {"term": "Eigenvalue", "definition": "scalar indicating how much a transformation stretches a vector"},
+  {"term": "Transpose", "definition": "matrix formed by swapping rows and columns"}
+]}}

@@ -1,0 +1,15 @@
+Quadratic Equations
+
+A quadratic equation is a polynomial equation of degree 2, written in the form ax² + bx + c = 0.
+
+The quadratic formula is x = (-b ± √(b²-4ac)) / 2a. Used to find roots of any quadratic.
+
+The discriminant is the expression b²-4ac. Determines the number and type of solutions.
+
+Roots: the values of x that satisfy the quadratic equation. Also called solutions or zeros.
+
+A parabola is the U-shaped curve formed by graphing a quadratic function.
+
+The vertex is the highest or lowest point of a parabola. Represents the maximum or minimum value.
+
+Factoring: rewriting a quadratic as a product of two binomials to find its roots.

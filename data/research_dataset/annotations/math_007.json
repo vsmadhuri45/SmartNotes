@@ -1,0 +1,7 @@
+{"id": "math_007", "domain": "math", "ground_truth": {"definitions": [
+  {"term": "Prime Number", "definition": "whole number greater than one with exactly two factors"},
+  {"term": "Factors", "definition": "numbers that divide evenly into another number"},
+  {"term": "Integer", "definition": "any whole number including positive, negative, and zero"},
+  {"term": "Rational Numbers", "definition": "numbers expressible as a fraction of two integers"},
+  {"term": "Irrational Numbers", "definition": "numbers that cannot be expressed as a simple fraction"}
+]}}

@@ -1,0 +1,7 @@
+{"id": "hist_006", "domain": "history", "ground_truth": {"definitions": [
+  {"term": "American Revolution", "definition": "uprising where colonies broke from British rule"},
+  {"term": "Declaration of Independence", "definition": "document proclaiming separation from Britain"},
+  {"term": "Continental Congress", "definition": "governing body of American colonies"},
+  {"term": "Treaty of Paris", "definition": "1783 agreement ending the American Revolution"},
+  {"term": "Democracy", "definition": "system where power is held by elected representatives"}
+]}}

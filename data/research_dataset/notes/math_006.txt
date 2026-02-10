@@ -1,0 +1,15 @@
+Functions and Graphs
+
+A function is a relationship where each input value maps to exactly one output value.
+
+The domain is the set of all possible input values for a function.
+
+The range is the set of all possible output values produced by a function.
+
+A linear function is a function whose graph forms a straight line with constant rate of change.
+
+An asymptote is a line that a graph approaches but never touches or crosses.
+
+Inverse functions are two functions that undo each other when composed together.
+
+The y-intercept is the point where a graph crosses the vertical axis, found when x equals zero.

@@ -1,0 +1,7 @@
+{"id": "lit_007", "domain": "literature", "ground_truth": {"definitions": [
+  {"term": "Modernism", "definition": "literary movement rejecting traditional forms"},
+  {"term": "Fragmentation", "definition": "modernist technique using disconnected narrative pieces"},
+  {"term": "Ambiguity", "definition": "quality of having multiple possible interpretations"},
+  {"term": "Intertextuality", "definition": "relationship between texts through references and allusions"},
+  {"term": "Existentialism", "definition": "philosophical theme exploring individual freedom and meaning"}
+]}}

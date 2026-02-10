@@ -1,0 +1,7 @@
+{"id": "hist_010", "domain": "history", "ground_truth": {"definitions": [
+  {"term": "Civil Rights Movement", "definition": "movement fighting racial segregation and discrimination"},
+  {"term": "Segregation", "definition": "enforced separation of people based on race"},
+  {"term": "Civil Disobedience", "definition": "nonviolent refusal to obey unjust laws"},
+  {"term": "Integration", "definition": "process of ending segregation between racial groups"},
+  {"term": "Activism", "definition": "taking direct action to achieve social or political change"}
+]}}

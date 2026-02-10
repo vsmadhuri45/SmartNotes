@@ -1,0 +1,17 @@
+Calculus: Derivatives
+
+A derivative is the rate of change of a function at any given point. Represents instantaneous rate of change.
+
+The limit is the value a function approaches as the input approaches a certain value.
+
+Differentiation: the process of finding the derivative of a function.
+
+The chain rule is a formula for computing the derivative of a composite function.
+
+A critical point is a point where the derivative equals zero or is undefined.
+
+Integration is the reverse process of differentiation. Used to find area under a curve.
+
+The integral is the result of integration, representing accumulated change over an interval.
+
+A continuous function is a function with no breaks, gaps, or jumps in its graph.

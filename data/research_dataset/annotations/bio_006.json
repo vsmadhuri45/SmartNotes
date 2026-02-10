@@ -1,0 +1,8 @@
+{"id": "bio_006", "domain": "biology", "ground_truth": {"definitions": [
+  {"term": "DNA", "definition": "double-helix molecule carrying genetic instructions"},
+  {"term": "Gene", "definition": "segment of DNA encoding instructions for a protein"},
+  {"term": "Chromosomes", "definition": "thread-like structures made of DNA in cell nuclei"},
+  {"term": "Genome", "definition": "complete set of genetic material in an organism"},
+  {"term": "Mutation", "definition": "permanent change in the DNA sequence"},
+  {"term": "Heredity", "definition": "passing of genetic traits from parents to offspring"}
+]}}

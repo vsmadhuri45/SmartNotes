@@ -1,0 +1,16 @@
+{
+  "id": "math_004",
+  "title": "Statistics and Probability",
+  "domain": "math",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Statistics", "definition": "branch of mathematics for data analysis"},
+      {"term": "Mean", "definition": "average of a dataset"},
+      {"term": "Median", "definition": "middle value in ordered dataset"},
+      {"term": "Mode", "definition": "most frequently appearing value"},
+      {"term": "Standard Deviation", "definition": "measure of spread from the mean"},
+      {"term": "Probability", "definition": "likelihood of an event occurring"},
+      {"term": "Variance", "definition": "average of squared differences from mean"}
+    ]
+  }
+}

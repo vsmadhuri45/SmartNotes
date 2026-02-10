@@ -1,0 +1,15 @@
+{
+  "id": "math_002",
+  "title": "Quadratic Equations",
+  "domain": "math",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Quadratic Equation", "definition": "polynomial equation of degree 2"},
+      {"term": "Discriminant", "definition": "expression b squared minus 4ac"},
+      {"term": "Roots", "definition": "values of x that satisfy the equation"},
+      {"term": "Parabola", "definition": "U-shaped curve from graphing a quadratic"},
+      {"term": "Vertex", "definition": "highest or lowest point of a parabola"},
+      {"term": "Factoring", "definition": "rewriting as product of two binomials"}
+    ]
+  }
+}

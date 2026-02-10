@@ -1,0 +1,8 @@
+{"id": "lit_009", "domain": "literature", "ground_truth": {"definitions": [
+  {"term": "Diction", "definition": "choice and arrangement of words to achieve style"},
+  {"term": "Syntax", "definition": "arrangement of words to create correct sentences"},
+  {"term": "Simile", "definition": "comparison using the words like or as"},
+  {"term": "Tone", "definition": "author's attitude conveyed through word choice"},
+  {"term": "Juxtaposition", "definition": "placing contrasting ideas side by side"},
+  {"term": "Parallelism", "definition": "use of similar structures to create balance"}
+]}}

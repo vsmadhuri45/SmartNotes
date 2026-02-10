@@ -1,0 +1,15 @@
+{
+  "id": "lit_003",
+  "title": "Narrative Structure",
+  "domain": "literature",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Plot", "definition": "sequence of events in a story"},
+      {"term": "Exposition", "definition": "introduction of background information"},
+      {"term": "Rising Action", "definition": "events building tension toward climax"},
+      {"term": "Climax", "definition": "point of highest tension in a story"},
+      {"term": "Resolution", "definition": "final outcome where conflicts are resolved"},
+      {"term": "Foreshadowing", "definition": "hints at future events in the story"}
+    ]
+  }
+}

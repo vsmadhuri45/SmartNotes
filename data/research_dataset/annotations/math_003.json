@@ -1,0 +1,14 @@
+{
+  "id": "math_003",
+  "title": "Geometry Triangles",
+  "domain": "math",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Triangle", "definition": "polygon with three sides and three angles"},
+      {"term": "Hypotenuse", "definition": "longest side of a right triangle"},
+      {"term": "Area", "definition": "amount of space inside a shape"},
+      {"term": "Perimeter", "definition": "total distance around outside of shape"},
+      {"term": "Similarity", "definition": "equal angles and proportional sides"}
+    ]
+  }
+}

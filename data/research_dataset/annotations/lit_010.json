@@ -1,0 +1,7 @@
+{"id": "lit_010", "domain": "literature", "ground_truth": {"definitions": [
+  {"term": "Satire", "definition": "technique using humor to criticize human vices"},
+  {"term": "Parody", "definition": "humorous imitation exaggerating characteristics for comedy"},
+  {"term": "Wit", "definition": "ability to make clever amusing observations"},
+  {"term": "Farce", "definition": "comedic style relying on exaggerated improbable situations"},
+  {"term": "Sarcasm", "definition": "sharp cutting form of irony used to mock"}
+]}}

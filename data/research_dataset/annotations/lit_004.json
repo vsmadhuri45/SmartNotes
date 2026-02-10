@@ -1,0 +1,14 @@
+{
+  "id": "lit_004",
+  "title": "Shakespeare and Drama",
+  "domain": "literature",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Tragedy", "definition": "dramatic work ending in downfall of main character"},
+      {"term": "Soliloquy", "definition": "speech where character speaks thoughts aloud alone"},
+      {"term": "Foil", "definition": "character whose traits highlight another characters qualities"},
+      {"term": "Dramatic Irony", "definition": "when audience knows something characters do not"},
+      {"term": "Catharsis", "definition": "emotional release at end of tragedy"}
+    ]
+  }
+}

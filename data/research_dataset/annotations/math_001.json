@@ -1,0 +1,15 @@
+{
+  "id": "math_001",
+  "title": "Linear Equations",
+  "domain": "math",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Linear Equation", "definition": "mathematical statement that two expressions are equal"},
+      {"term": "Slope-Intercept Form", "definition": "written as y = mx + b"},
+      {"term": "Slope", "definition": "rate of change between two points"},
+      {"term": "Variables", "definition": "symbols representing unknown quantities"},
+      {"term": "Coefficient", "definition": "number multiplied by a variable"},
+      {"term": "Solution", "definition": "value that makes equation true"}
+    ]
+  }
+}

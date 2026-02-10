@@ -1,0 +1,14 @@
+{
+  "id": "lit_002",
+  "title": "Poetry Analysis",
+  "domain": "literature",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Sonnet", "definition": "14-line poem in iambic pentameter"},
+      {"term": "Alliteration", "definition": "repetition of consonant sound at start of words"},
+      {"term": "Stanza", "definition": "grouped set of lines in a poem"},
+      {"term": "Personification", "definition": "giving human qualities to non-human things"},
+      {"term": "Ode", "definition": "lyric poem expressing strong feelings"}
+    ]
+  }
+}

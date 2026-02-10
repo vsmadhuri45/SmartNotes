@@ -1,0 +1,15 @@
+Number Theory
+
+A prime number is a whole number greater than one that has exactly two factors: one and itself.
+
+Factors are numbers that divide evenly into another number without leaving a remainder.
+
+The greatest common factor is the largest number that divides evenly into two or more numbers.
+
+Multiples are numbers produced by multiplying a given number by positive integers.
+
+An integer is any whole number, including positive numbers, negative numbers, and zero.
+
+Rational numbers are numbers that can be expressed as a fraction of two integers.
+
+Irrational numbers are numbers that cannot be expressed as a simple fraction.

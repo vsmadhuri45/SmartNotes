@@ -1,0 +1,15 @@
+Trigonometry
+
+Trigonometry is the branch of mathematics studying relationships between angles and sides of triangles.
+
+The sine of an angle is the ratio of the opposite side to the hypotenuse in a right triangle.
+
+The cosine is the ratio of the adjacent side to the hypotenuse in a right triangle.
+
+Tangent is the ratio of the opposite side to the adjacent side in a right triangle.
+
+A radian is a unit of angular measurement equal to the angle subtended by an arc equal to the radius.
+
+The unit circle is a circle with radius one centered at the origin used to define trigonometric functions.
+
+Amplitude is the maximum displacement from the midline in a periodic function.

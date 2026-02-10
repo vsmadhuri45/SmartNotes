@@ -1,0 +1,15 @@
+Linear Equations (Algebra)
+
+A linear equation is a mathematical statement that two expressions are equal, containing variables raised to the first power.
+
+The slope-intercept form is written as y = mx + b, where m represents the slope and b represents the y-intercept.
+
+Slope: the rate of change between two points on a line. Calculated as rise over run.
+
+The x-intercept is the point where a line crosses the x-axis. Found by setting y = 0.
+
+Variables: symbols that represent unknown quantities in an equation.
+
+A coefficient is a number multiplied by a variable in an algebraic expression.
+
+The solution is the value of the variable that makes the equation true.

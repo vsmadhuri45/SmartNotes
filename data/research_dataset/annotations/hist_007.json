@@ -1,0 +1,7 @@
+{"id": "hist_007", "domain": "history", "ground_truth": {"definitions": [
+  {"term": "Renaissance", "definition": "period of cultural revival in Europe 14th to 17th centuries"},
+  {"term": "Humanism", "definition": "intellectual movement emphasizing human potential and reason"},
+  {"term": "Secularism", "definition": "principle separating religion from public life"},
+  {"term": "Patronage", "definition": "system where wealthy individuals funded artists"},
+  {"term": "Scientific Revolution", "definition": "period of rapid scientific advances challenging tradition"}
+]}}

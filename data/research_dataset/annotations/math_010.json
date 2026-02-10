@@ -1,0 +1,7 @@
+{"id": "math_010", "domain": "math", "ground_truth": {"definitions": [
+  {"term": "Set", "definition": "collection of distinct objects as a single entity"},
+  {"term": "Union", "definition": "set containing all elements from both sets"},
+  {"term": "Intersection", "definition": "set containing only elements appearing in both sets"},
+  {"term": "Subset", "definition": "set whose elements are all within another larger set"},
+  {"term": "Proposition", "definition": "statement that is either true or false"}
+]}}

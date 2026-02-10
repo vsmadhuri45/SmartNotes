@@ -1,0 +1,15 @@
+{
+  "id": "math_005",
+  "title": "Calculus Derivatives",
+  "domain": "math",
+  "ground_truth": {
+    "definitions": [
+      {"term": "Derivative", "definition": "rate of change of a function at a point"},
+      {"term": "Limit", "definition": "value a function approaches as input approaches a value"},
+      {"term": "Differentiation", "definition": "process of finding the derivative"},
+      {"term": "Critical Point", "definition": "point where derivative equals zero"},
+      {"term": "Integration", "definition": "reverse process of differentiation"},
+      {"term": "Integral", "definition": "result of integration representing accumulated change"}
+    ]
+  }
+}

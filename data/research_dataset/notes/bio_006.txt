@@ -1,0 +1,17 @@
+Genetics and DNA
+
+DNA is a double-helix molecule that carries the genetic instructions for all living organisms.
+
+A gene is a segment of DNA that encodes the instructions for building a specific protein.
+
+Chromosomes are thread-like structures made of DNA and proteins found in cell nuclei.
+
+The genome is the complete set of genetic material in an organism.
+
+Mutation: a permanent change in the DNA sequence of an organism. Can be harmful or beneficial.
+
+A dominant trait is a genetic characteristic that appears when at least one copy of the gene is present.
+
+Recessive traits are characteristics that only appear when two copies of the gene are inherited.
+
+Heredity is the passing of genetic traits from parents to offspring.

@@ -1,0 +1,7 @@
+{"id": "hist_009", "domain": "history", "ground_truth": {"definitions": [
+  {"term": "Pharaoh", "definition": "supreme ruler of ancient Egypt considered divine"},
+  {"term": "Hieroglyphics", "definition": "ancient Egyptian writing system using pictorial symbols"},
+  {"term": "Mummification", "definition": "process of preserving a dead body for the afterlife"},
+  {"term": "Pyramids", "definition": "massive stone structures built as tombs for pharaohs"},
+  {"term": "Polytheism", "definition": "belief in and worship of multiple gods"}
+]}}

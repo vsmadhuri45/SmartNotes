@@ -1,0 +1,8 @@
+{"id": "math_008", "domain": "math", "ground_truth": {"definitions": [
+  {"term": "Trigonometry", "definition": "branch studying relationships between angles and sides"},
+  {"term": "Sine", "definition": "ratio of opposite side to hypotenuse in right triangle"},
+  {"term": "Cosine", "definition": "ratio of adjacent side to hypotenuse in right triangle"},
+  {"term": "Tangent", "definition": "ratio of opposite side to adjacent side"},
+  {"term": "Radian", "definition": "unit of angular measurement equal to arc length over radius"},
+  {"term": "Amplitude", "definition": "maximum displacement from midline in periodic function"}
+]}}
