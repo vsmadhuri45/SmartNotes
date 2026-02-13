@@ -1,0 +1,6 @@
+Domain,Baseline F1,Current F1,Change,Notes
+Biology,0.740,0.879,0.139,10
+History,0.226,0.771,0.545,10
+Math,N/A,0.820,N/A,10
+Literature,N/A,0.884,N/A,10
+Overall,0.483,0.838,0.355,40

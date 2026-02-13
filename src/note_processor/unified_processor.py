@@ -107,6 +107,27 @@ class UnifiedProcessor:
             if self._validate(term, defn, 10):
                 self._add(definitions, term, defn, 'the_is_are')
         
+        # Pattern 16: Multi-word with lowercase second word + colon (conservative)
+        # Catches: "Factory system:", "Labor unions:", but keeps high threshold
+        p16 = r'^([A-Z][a-z]+\s+[a-z]+):\s*(.+?)(?:\.|$)'
+        for term, defn in re.findall(p16, text, re.MULTILINE):
+            # Higher thresholds to avoid false positives
+            if len(term) >= 8 and len(defn) >= 20:
+                term_words = term.lower().split()
+                # Skip if contains pronouns or common words
+                skip_words = self.pronouns | {'key', 'main', 'new', 'old', 'first', 'last', 'next'}
+                if not any(w in skip_words for w in term_words):
+                    self._add(definitions, term.strip().title(), defn.strip(), 'multiword_lower')
+        
+        # Pattern 17: Multi-word starting with capital, lowercase words, then is/are
+        # Catches: "Rational numbers are...", "Prime numbers are..."
+        p17 = r'^([A-Z][a-z]+\s+[a-z]+(?:\s+[a-z]+)*)\s+(?:is|are)\s+(?:a|an|the)?\s*(.+?)(?:\.|$)'
+        for term, defn in re.findall(p17, text, re.MULTILINE):
+            if len(term) >= 8 and len(defn) >= 15:
+                term_words = term.lower().split()
+                if not any(w in self.pronouns for w in term_words):
+                    self._add(definitions, term.strip().title(), defn.strip(), 'multiword_cap_lower_are')
+        
         return definitions
     
     def _validate(self, term, definition, min_len=10):
