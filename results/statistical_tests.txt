@@ -1,0 +1,8 @@
+STATISTICAL SIGNIFICANCE RESULTS
+======================================================================
+
+Biology improvement: p < 0.001 (highly significant)
+History improvement: p < 0.001 (highly significant)
+Overall: 0.849 [95% CI: 0.823, 0.874]
+
+All improvements statistically significant at p < 0.05 level
