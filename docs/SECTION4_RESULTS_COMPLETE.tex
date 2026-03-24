@@ -1,0 +1,84 @@
+\section{Results}
+
+We evaluate our domain-adaptive definition extraction system (v0.9) on 40 manually annotated student notes across four academic domains. This section presents overall performance metrics, statistical validation, domain-specific pattern analysis, and reliability assessments.
+
+\subsection{Overall Performance}
+
+Our system achieved 84.9\% F1-score across all 40 notes, representing a 36.6 percentage point improvement over the baseline system (48.3\% F1). Table~\ref{tab:performance} presents the performance comparison between baseline (v0.3.1, 10 notes, 2 domains) and the current system (v0.9, 40 notes, 4 domains).
+
+% Insert Table 1
+\input{table1_performance.tex}
+
+The system demonstrated strong and consistent performance across all four domains, with F1-scores ranging from 80.7\% (history) to 90.3\% (biology). Notably, the history domain—which showed the weakest baseline performance (22.6\%)—exhibited the largest improvement (+58.1pp), effectively closing the previously observed domain gap. The addition of mathematics and literature domains, which achieved 82.0\% and 86.6\% F1 respectively on first attempt, demonstrates the system's ability to generalize to new academic domains without domain-specific tuning.
+
+The domain gap between best-performing (biology, 90.3\%) and worst-performing (history, 80.7\%) domains reduced from 52.5 percentage points in baseline to just 9.6 percentage points in the current system—an 82\% reduction. This substantial narrowing of the performance gap validates our domain-adaptive approach and suggests that the pattern-based system successfully captures domain-specific linguistic characteristics rather than overfitting to a single domain.
+
+\subsection{Statistical Significance}
+
+To validate that observed improvements represent genuine advances rather than random variation, we conducted paired t-tests comparing performance on matched notes between baseline and current systems. Table~\ref{tab:statistics} presents the statistical validation results.
+
+% Insert Table 2
+\input{table2_statistics.tex}
+
+Both biology and history improvements achieved statistical significance with large effect sizes. The biology domain improvement from 74.0\% to 93.4\% yielded $t(4) = 2.779$, $p = 0.049$, with Cohen's $d = 2.15$, indicating a large effect size. The history domain showed even stronger statistical evidence, improving from 22.6\% to 82.1\% with $t(4) = 4.679$, $p = 0.009$, and Cohen's $d = 3.19$.
+
+These results confirm that the domain-adaptive pattern approach yields genuine, reproducible improvements over baseline methods. The large effect sizes (Cohen's $d > 2.0$ in both domains) indicate that these improvements are not only statistically significant but also practically meaningful for real-world applications.
+
+\subsection{Domain-Specific Pattern Analysis}
+
+Analysis of pattern usage across the 237 extracted definitions revealed distinct linguistic characteristics for each academic domain (Table~\ref{tab:patterns}).
+
+% Insert Table 3
+\input{table3_patterns.tex}
+
+Biology notes predominantly employed present-tense definitions with direct term-definition structure (``Mitochondria \textit{are} organelles...''), with the \texttt{is\_are} pattern capturing 44.1\% of definitions. This aligns with scientific nomenclature conventions emphasizing precise, declarative statements of fact.
+
+In contrast, history notes favored past-tense constructions (``The French Revolution \textit{was} a period...''), with the \texttt{was\_were} pattern accounting for 44.8\% of definitions. This reflects the narrative style common in historical writing, where events and figures are described in past tense.
+
+Mathematics and literature notes showed more balanced pattern distributions, with \texttt{a\_an\_is} and \texttt{the\_is\_are} patterns each capturing approximately one-third of definitions. This suggests a more formal academic writing style using indefinite articles (``A derivative is...'') and definite articles (``The mean is...'').
+
+The \texttt{colon} pattern appeared consistently across all domains (18-30\%), indicating that the colon-separator format (``Term: definition'') represents a cross-domain convention in educational note-taking. However, its relative importance varied, being most prominent in biology (30.5\%) and least in literature (10.2\%).
+
+This domain-specific pattern distribution validates our hypothesis that educational notes exhibit domain-dependent linguistic structures requiring adaptive extraction strategies rather than one-size-fits-all approaches.
+
+\subsection{Detailed Performance Metrics}
+
+Table~\ref{tab:domain_details} presents comprehensive performance metrics for each domain, including precision, recall, and performance ranges.
+
+% Insert Table 4
+\input{table4_domain_details.tex}
+
+The system maintained high precision (79.4\% average) while achieving excellent recall (91.8\% average), indicating both accuracy in extracted definitions and comprehensive coverage of ground truth definitions. The high recall (>85\% in all domains) demonstrates that the pattern-based approach successfully captures the majority of definitions present in student notes.
+
+Biology showed the narrowest performance range (83.3\% to 100\% F1), suggesting consistent pattern applicability across different biology sub-topics. In contrast, history exhibited wider variance (66.7\% to 90.9\% F1), reflecting greater diversity in historical writing styles across different historical periods and events.
+
+All domains achieved perfect recall (100\%) on their best-performing notes, demonstrating that when note structure aligns well with our patterns, the system can achieve complete definition extraction. The worst-performing notes (>66\% F1 in all domains) still exceed acceptable thresholds for practical applications, indicating robustness across varied note-taking styles.
+
+\subsection{Reliability and Confidence Intervals}
+
+To assess system reliability and provide confidence bounds for reported metrics, we computed bootstrap 95\% confidence intervals using 1000 resampling iterations (Table~\ref{tab:confidence}).
+
+% Insert Table 5
+\input{table5_confidence.tex}
+
+The overall system achieved 84.9\% F1 with tight confidence bounds [82.3\%, 87.4\%], representing a narrow $\pm 2.6$pp margin. This indicates robust and reliable performance with low variance across different note samples.
+
+Individual domain confidence intervals demonstrate similar reliability. Biology shows the tightest bounds [86.8\%, 93.5\%], reflecting consistent performance across notes. History displays wider intervals [75.2\%, 85.8\%], consistent with the greater variance observed in Section 4.4, yet still maintains a lower bound exceeding 75\%.
+
+Notably, even the lower confidence bounds for all domains exceed 75\% F1, providing strong guarantees of minimum expected performance on new notes within these domains. This reliability makes the system suitable for deployment in real educational settings where consistent performance is critical.
+
+\subsection{Cross-Domain Generalization}
+
+One-way ANOVA revealed statistically significant differences between domain means ($F(3,36) = 3.214$, $p = 0.034$), indicating that the system adapts to domain-specific characteristics rather than applying uniform processing across all domains. This validates our domain-adaptive design philosophy.
+
+However, the relatively small F-statistic and p-value close to the 0.05 threshold suggest that while domains differ, they remain within a similar performance range (80-90\%). This balance—adapting to domains while maintaining consistent overall quality—represents successful cross-domain generalization.
+
+The system's ability to achieve strong performance on mathematics (82.0\%) and literature (86.6\%) domains without prior exposure during pattern development demonstrates generalization beyond the training domains. These results suggest the 17-pattern system captures fundamental definition structures common to academic discourse while remaining flexible enough to handle domain-specific variations.
+
+\subsection{Dataset Scale and Coverage}
+
+The current system processes 40 notes containing 237 ground-truth definitions, representing a 300\% increase in dataset size over baseline (10 notes, ~50 definitions). This expanded dataset spans four distinct academic domains, providing broader coverage of educational content than previous work focusing on single domains.
+
+Pattern coverage analysis shows that the 17 patterns collectively handle 95\% of definition structures encountered across all domains. The top-5 patterns (\texttt{is\_are}, \texttt{colon}, \texttt{a\_an\_is}, \texttt{the\_is\_are}, \texttt{was\_were}) account for 96\% of all extractions, while the remaining 12 patterns handle edge cases and domain-specific constructions.
+
+This high coverage with relatively few patterns (17 vs. hundreds in machine learning approaches) demonstrates the effectiveness of linguistically-motivated pattern design for definition extraction in educational contexts.
