@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartNotes</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f0f4ff;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #1a1a2e;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .logo { color: #fff; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; }
+    nav .logo span { color: #6c63ff; }
+    nav .nav-links { display: flex; gap: 8px; }
+    nav .nav-links button {
+      background: transparent;
+      border: 1px solid #ffffff30;
+      color: #ccc;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    nav .nav-links button:hover,
+    nav .nav-links button.active {
+      background: #6c63ff;
+      border-color: #6c63ff;
+      color: #fff;
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; padding: 32px; max-width: 900px; margin: 0 auto; }
+    .page.active { display: block; }
+
+    h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 16px; color: #444; }
+    p.subtitle { color: #666; margin-bottom: 28px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    /* ── UPLOAD ── */
+    .upload-zone {
+      border: 2px dashed #6c63ff;
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      background: #fff;
+    }
+    .upload-zone:hover { background: #f5f3ff; }
+    .upload-zone .icon { font-size: 3rem; margin-bottom: 12px; }
+    .upload-zone p { color: #666; margin-top: 8px; font-size: 0.9rem; }
+    #fileInput { display: none; }
+
+    /* ── BUTTON ── */
+    .btn {
+      background: #6c63ff;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+      margin-top: 16px;
+    }
+    .btn:hover { background: #574fd6; transform: translateY(-1px); }
+    .btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      margin-top: 0;
+    }
+    .btn-success { background: #22c55e; }
+    .btn-success:hover { background: #16a34a; }
+    .btn-danger { background: #ef4444; }
+    .btn-danger:hover { background: #dc2626; }
+
+    /* ── STATS GRID ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .stat-card .number { font-size: 2.5rem; font-weight: 700; color: #6c63ff; }
+    .stat-card .label { color: #888; font-size: 0.85rem; margin-top: 4px; }
+
+    /* ── DEFINITION LIST ── */
+    .def-item {
+      border-left: 4px solid #6c63ff;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      background: #f9f8ff;
+      border-radius: 0 8px 8px 0;
+    }
+    .def-item .term { font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+    .def-item .meaning { color: #555; font-size: 0.9rem; }
+    .def-item .meta {
+      margin-top: 6px;
+      display: flex;
+      gap: 8px;
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .badge-domain { background: #e0e7ff; color: #4338ca; }
+    .badge-confidence { background: #dcfce7; color: #166534; }
+    .badge-pattern { background: #fef9c3; color: #854d0e; }
+
+    /* ── FLASHCARD ── */
+    .flashcard-container {
+      perspective: 1000px;
+      margin: 0 auto 24px;
+      max-width: 600px;
+    }
+    .flashcard {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      cursor: pointer;
+    }
+    .flashcard.flipped { transform: rotateY(180deg); }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(108,99,255,0.15);
+    }
+    .flashcard-front {
+      background: linear-gradient(135deg, #6c63ff, #a78bfa);
+      color: white;
+    }
+    .flashcard-front .hint { font-size: 0.8rem; opacity: 0.7; margin-bottom: 12px; }
+    .flashcard-front .fc-term { font-size: 1.6rem; font-weight: 700; }
+    .flashcard-back {
+      background: #fff;
+      border: 2px solid #e0e7ff;
+      transform: rotateY(180deg);
+      color: #1a1a2e;
+    }
+    .flashcard-back .fc-def { font-size: 1.1rem; color: #444; line-height: 1.6; }
+
+    .fc-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .fc-progress {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    /* ── DIFFICULTY BADGE ── */
+    .diff-easy { background: #dcfce7; color: #166534; }
+    .diff-medium { background: #fef9c3; color: #854d0e; }
+    .diff-hard { background: #fee2e2; color: #991b1b; }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: #1a1a2e;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 999;
+      pointer-events: none;
+    }
+    #toast.show { opacity: 1; }
+
+    /* ── LOADER ── */
+    .spinner {
+      display: inline-block;
+      width: 20px; height: 20px;
+      border: 3px solid #ffffff50;
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── DOMAIN BARS ── */
+    .domain-bar-row { margin-bottom: 12px; }
+    .domain-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: #555;
+    }
+    .domain-bar-track {
+      background: #e5e7eb;
+      border-radius: 99px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .domain-bar-fill {
+      height: 100%;
+      background: #6c63ff;
+      border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px;
+      color: #aaa;
+    }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Smart<span>Notes</span></div>
+  <div class="nav-links">
+    <button class="active" onclick="showPage('upload')">📤 Upload</button>
+    <button onclick="showPage('flashcards')">🃏 Flashcards</button>
+    <button onclick="showPage('stats')">📊 Stats</button>
+  </div>
+</nav>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 1: UPLOAD
+════════════════════════════════════════ -->
+<div id="page-upload" class="page active">
+  <h1>Upload Notes</h1>
+  <p class="subtitle">Drop a .txt file to extract definitions and generate flashcards automatically.</p>
+
+  <div class="upload-zone" onclick="document.getElementById('fileInput').click()" id="uploadZone">
+    <div class="icon">📄</div>
+    <strong id="uploadLabel">Click to choose a .txt file</strong>
+    <p>Supports biology, history, math, literature notes</p>
+  </div>
+  <input type="file" id="fileInput" accept=".txt" onchange="handleFileSelect(event)" />
+
+  <button class="btn" id="uploadBtn" onclick="uploadFile()" disabled>
+    Extract &amp; Generate Flashcards
+  </button>
+
+  <div id="uploadResult"></div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 2: FLASHCARDS
+════════════════════════════════════════ -->
+<div id="page-flashcards" class="page">
+  <h1>Study Flashcards</h1>
+  <p class="subtitle">Click a card to flip it. Mark correct or incorrect to track your progress.</p>
+
+  <div id="fcContent">
+    <div class="empty-state">
+      <div class="icon">🃏</div>
+      <p>Upload notes first to generate flashcards</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 3: STATS
+════════════════════════════════════════ -->
+<div id="page-stats" class="page">
+  <h1>Analytics</h1>
+  <p class="subtitle">Overview of your SmartNotes activity.</p>
+  <div id="statsContent">
+    <div class="empty-state"><div class="icon">📊</div><p>Loading stats...</p></div>
+  </div>
+</div>
+
+<script>
+  const API = "http://localhost:8000";
+  let selectedFile = null;
+  let allFlashcards = [];
+  let currentCardIndex = 0;
+  let isFlipped = false;
+
+  // ── NAVIGATION ──
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    event.target.classList.add('active');
+    if (name === 'flashcards') loadFlashcards();
+    if (name === 'stats') loadStats();
+  }
+
+  // ── TOAST ──
+  function toast(msg, duration = 3000) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), duration);
+  }
+
+  // ── FILE SELECT ──
+  function handleFileSelect(e) {
+    selectedFile = e.target.files[0];
+    if (selectedFile) {
+      document.getElementById('uploadLabel').textContent = '📎 ' + selectedFile.name;
+      document.getElementById('uploadBtn').disabled = false;
+    }
+  }
+
+  // ── UPLOAD & EXTRACT ──
+  async function uploadFile() {
+    if (!selectedFile) return;
+    const btn = document.getElementById('uploadBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Processing...';
+
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+
+    try {
+      const res = await fetch(`${API}/api/extract`, { method: 'POST', body: formData });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.detail || 'Upload failed');
+
+      renderUploadResult(data);
+      toast(`✅ ${data.definition_count} definitions & ${data.flashcards_created} flashcards created!`);
+    } catch (err) {
+      document.getElementById('uploadResult').innerHTML =
+        `<div class="card" style="border-left:4px solid #ef4444;color:#ef4444">❌ Error: ${err.message}</div>`;
+      toast('❌ Upload failed');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Extract &amp; Generate Flashcards';
+    }
+  }
+
+  function renderUploadResult(data) {
+    const defs = data.definitions.map(d => `
+      <div class="def-item">
+        <div class="term">${d.term}</div>
+        <div class="meaning">${d.meaning}</div>
+        <div class="meta">
+          <span class="badge badge-domain">${d.domain}</span>
+          <span class="badge badge-confidence">confidence: ${Math.round(d.confidence * 100)}%</span>
+          <span class="badge badge-pattern">${d.pattern_used}</span>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('uploadResult').innerHTML = `
+      <div class="card" style="margin-top:24px">
+        <h2>✅ Results for <em>${data.filename}</em></h2>
+        <div class="stats-grid" style="margin-bottom:16px">
+          <div class="stat-card">
+            <div class="number">${data.definition_count}</div>
+            <div class="label">Definitions</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">${data.flashcards_created}</div>
+            <div class="label">Flashcards</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">${data.word_count}</div>
+            <div class="label">Words</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-bottom:20px;align-items:center">
+          <span class="badge badge-domain" style="font-size:0.9rem;padding:6px 14px">
+            📚 Domain: ${data.domain}
+          </span>
+          <span class="badge badge-confidence" style="font-size:0.9rem;padding:6px 14px">
+            ⚡ ${data.processing_time_ms}ms
+          </span>
+        </div>
+        <h2>Extracted Definitions</h2>
+        ${defs.length ? defs : '<p style="color:#aaa">No definitions matched — try a different note format.</p>'}
+      </div>
+    `;
+  }
+
+  // ── FLASHCARDS ──
+  async function loadFlashcards() {
+    try {
+      const res = await fetch(`${API}/api/study/session?count=20`);
+      const data = await res.json();
+      allFlashcards = data.session_cards;
+      currentCardIndex = 0;
+      renderFlashcardPage();
+    } catch (err) {
+      document.getElementById('fcContent').innerHTML =
+        `<div class="card" style="color:#ef4444">❌ Could not load flashcards</div>`;
+    }
+  }
+
+  function renderFlashcardPage() {
+    if (!allFlashcards.length) {
+      document.getElementById('fcContent').innerHTML = `
+        <div class="empty-state">
+          <div class="icon">🃏</div>
+          <p>No flashcards yet. Upload notes first!</p>
+        </div>`;
+      return;
+    }
+
+    const card = allFlashcards[currentCardIndex];
+    const diffClass = 'diff-' + card.difficulty;
+    const accuracy = card.times_reviewed > 0
+      ? Math.round((card.times_correct / card.times_reviewed) * 100) + '%'
+      : 'New';
+
+    document.getElementById('fcContent').innerHTML = `
+      <div class="fc-progress">
+        Card ${currentCardIndex + 1} of ${allFlashcards.length} &nbsp;|&nbsp;
+        <span class="badge ${diffClass}">${card.difficulty}</span> &nbsp;|&nbsp;
+        Accuracy: ${accuracy}
+      </div>
+
+      <div class="flashcard-container">
+        <div class="flashcard" id="flashcard" onclick="flipCard()">
+          <div class="flashcard-front">
+            <div class="hint">👆 Click to reveal definition</div>
+            <div class="fc-term">${card.term}</div>
+          </div>
+          <div class="flashcard-back">
+            <div class="fc-def">${card.definition}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fc-controls">
+        <button class="btn btn-sm" onclick="prevCard()">← Prev</button>
+        <button class="btn btn-sm btn-success" onclick="reviewCard(${card.id}, true)">✓ Got it</button>
+        <button class="btn btn-sm btn-danger" onclick="reviewCard(${card.id}, false)">✗ Missed it</button>
+        <button class="btn btn-sm" onclick="nextCard()">Next →</button>
+      </div>
+    `;
+    isFlipped = false;
+  }
+
+  function flipCard() {
+    const fc = document.getElementById('flashcard');
+    if (fc) {
+      isFlipped = !isFlipped;
+      fc.classList.toggle('flipped', isFlipped);
+    }
+  }
+
+  function nextCard() {
+    if (currentCardIndex < allFlashcards.length - 1) {
+      currentCardIndex++;
+      renderFlashcardPage();
+    } else {
+      toast('🎉 You reached the end of the deck!');
+    }
+  }
+
+  function prevCard() {
+    if (currentCardIndex > 0) {
+      currentCardIndex--;
+      renderFlashcardPage();
+    }
+  }
+
+  async function reviewCard(id, correct) {
+    try {
+      await fetch(`${API}/api/flashcards/${id}/review`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ correct })
+      });
+      toast(correct ? '✅ Marked correct!' : '❌ Marked incorrect');
+      // Refresh card data and move to next
+      await loadFlashcards();
+      if (currentCardIndex >= allFlashcards.length) currentCardIndex = allFlashcards.length - 1;
+      renderFlashcardPage();
+    } catch (err) {
+      toast('❌ Could not save review');
+    }
+  }
+
+  // ── STATS ──
+  async function loadStats() {
+    try {
+      const res = await fetch(`${API}/api/stats`);
+      const data = await res.json();
+      renderStats(data);
+    } catch (err) {
+      document.getElementById('statsContent').innerHTML =
+        `<div class="card" style="color:#ef4444">❌ Could not load stats</div>`;
+    }
+  }
+
+  function renderStats(data) {
+    const total = Object.values(data.domain_breakdown).reduce((a, b) => a + b, 0) || 1;
+    const domainBars = Object.entries(data.domain_breakdown).map(([domain, count]) => `
+      <div class="domain-bar-row">
+        <div class="domain-bar-label">
+          <span>${domain.charAt(0).toUpperCase() + domain.slice(1)}</span>
+          <span>${count} definitions</span>
+        </div>
+        <div class="domain-bar-track">
+          <div class="domain-bar-fill" style="width: ${Math.round((count / total) * 100)}%"></div>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('statsContent').innerHTML = `
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">${data.total_notes}</div>
+          <div class="label">Notes Uploaded</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">${data.total_definitions}</div>
+          <div class="label">Definitions Extracted</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">${data.total_flashcards}</div>
+          <div class="label">Flashcards Created</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Extraction Quality</h2>
+        <div style="display:flex;gap:24px;margin-bottom:16px">
+          <div>
+            <div style="font-size:2rem;font-weight:700;color:#6c63ff">
+              ${Math.round(data.average_confidence * 100)}%
+            </div>
+            <div style="color:#888;font-size:0.85rem">Average Confidence</div>
+          </div>
+          <div>
+            <div style="font-size:2rem;font-weight:700;color:#6c63ff">
+              ${data.patterns_available}
+            </div>
+            <div style="color:#888;font-size:0.85rem">NLP Patterns Active</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Domain Breakdown</h2>
+        ${domainBars}
+      </div>
+    `;
+  }
+
+  // ── INIT: load stats silently on page load ──
+  loadStats();
+</script>
+</body>
+</html>
