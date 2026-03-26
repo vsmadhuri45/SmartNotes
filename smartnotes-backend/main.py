@@ -15,7 +15,6 @@ import os
 # ─────────────────────────────────────────────
 
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+psycopg://smartnotes_user:smartnotes2024@localhost:5432/smartnotes")
-
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
@@ -264,9 +263,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
+import os
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
