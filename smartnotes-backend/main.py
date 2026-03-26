@@ -226,9 +226,16 @@ def extract_definitions(text: str, domain: str) -> list:
             meaning = match.group(2).strip()
             term = re.sub(r'\s+', ' ', term).strip(".,;: ")
             meaning = re.sub(r'\s+', ' ', meaning).strip(".,;: ")
+            STOPWORDS = {"they", "them", "which", "this", "that", "these", "those",
+             "it", "he", "she", "we", "you", "i", "who", "what",
+             "most of them", "some of them", "all of them", "there"}
+
+            BAD_STARTS = ("by ", "in ", "of ", "to ", "the ", "a ", "an ", "and ", "or ", "for ", "on ")
             if len(term) < 2 or term.lower() in seen_terms:
                 continue
-            if len(meaning) < 10:
+            if term.lower() in STOPWORDS:
+                continue
+            if any(term.lower().startswith(s) for s in BAD_STARTS):
                 continue
             seen_terms.add(term.lower())
             found.append({
