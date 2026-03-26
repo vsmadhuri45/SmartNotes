@@ -64,6 +64,9 @@ class FlashcardModel(Base):
     difficulty = Column(String, default="medium")
     times_reviewed = Column(Integer, default=0)
     times_correct = Column(Integer, default=0)
+    next_review_at = Column(DateTime, default=datetime.utcnow)  # NEW
+    interval_days = Column(Float, default=1.0)                  # NEW
+    ease_factor = Column(Float, default=2.5)                    # NEW
     note_id = Column(Integer, ForeignKey("notes.id"), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
@@ -128,6 +131,9 @@ class FlashcardOut(BaseModel):
     difficulty: str
     times_reviewed: int
     times_correct: int
+    next_review_at: datetime   # NEW
+    interval_days: float       # NEW
+    ease_factor: float         # NEW
     note_id: int
     created_at: datetime
 
@@ -136,7 +142,7 @@ class FlashcardOut(BaseModel):
 
 
 class FlashcardReviewIn(BaseModel):
-    correct: bool
+    quality: int  # 0=blackout, 1=wrong, 2=hard, 3=good, 4=easy, 5=perfect
 
 
 # ─────────────────────────────────────────────
@@ -424,62 +430,97 @@ def get_flashcards_for_note(note_id: int, db: Session = Depends(get_db)):
 
 @app.post("/api/flashcards/{flashcard_id}/review", tags=["Flashcards"])
 def review_flashcard(flashcard_id: int, review: FlashcardReviewIn, db: Session = Depends(get_db)):
-    """Record a study result. Auto-adjusts difficulty based on performance."""
+    """
+    SM-2 spaced repetition algorithm.
+    quality: 0=blackout, 1=wrong, 2=hard, 3=good, 4=easy, 5=perfect
+    """
+    from datetime import timedelta
+
     fc = db.query(FlashcardModel).filter(FlashcardModel.id == flashcard_id).first()
     if not fc:
         raise HTTPException(status_code=404, detail="Flashcard not found")
 
+    q = max(0, min(5, review.quality))  # clamp to 0-5
+
     fc.times_reviewed += 1
-    if review.correct:
+    if q >= 3:
         fc.times_correct += 1
 
-    if fc.times_reviewed >= 3:
-        accuracy = fc.times_correct / fc.times_reviewed
-        if accuracy >= 0.8:
-            fc.difficulty = "easy"
-        elif accuracy >= 0.5:
-            fc.difficulty = "medium"
-        else:
-            fc.difficulty = "hard"
+    # ── SM-2 Algorithm ──
+    if q < 2:
+        # Failed — reset interval
+        fc.interval_days = 1
+    elif fc.times_reviewed == 1:
+        fc.interval_days = 1
+    elif fc.times_reviewed == 2:
+        fc.interval_days = 6
+    else:
+        fc.interval_days = round(fc.interval_days * fc.ease_factor, 1)
+
+    # Update ease factor (stays between 1.3 and 2.5)
+    fc.ease_factor = max(1.3, fc.ease_factor + 0.1 - (5 - q) * 0.08)
+
+    # Schedule next review
+    fc.next_review_at = datetime.utcnow() + timedelta(days=fc.interval_days)
+
+    # Update difficulty label
+    if fc.ease_factor >= 2.3:
+        fc.difficulty = "easy"
+    elif fc.ease_factor >= 1.8:
+        fc.difficulty = "medium"
+    else:
+        fc.difficulty = "hard"
 
     db.commit()
     db.refresh(fc)
 
     return {
         "flashcard_id": flashcard_id,
-        "correct": review.correct,
-        "times_reviewed": fc.times_reviewed,
-        "accuracy": round(fc.times_correct / fc.times_reviewed, 2),
+        "quality": q,
+        "new_interval_days": fc.interval_days,
+        "next_review_at": fc.next_review_at.isoformat(),
+        "ease_factor": round(fc.ease_factor, 2),
         "difficulty": fc.difficulty
     }
 
 
 @app.get("/api/study/session", tags=["Flashcards"])
 def get_study_session(domain: Optional[str] = None, count: int = 10, db: Session = Depends(get_db)):
-    """Study session: hard cards first, then medium, then easy."""
+    """
+    Smart study session: due cards first, then hard, then medium, then easy.
+    """
+    from datetime import timedelta
+    now = datetime.utcnow()
+
     def get_cards(difficulty, limit):
         query = db.query(FlashcardModel).filter(FlashcardModel.difficulty == difficulty)
         if domain:
             query = query.filter(FlashcardModel.domain == domain)
         return query.limit(limit).all()
 
-    hard = get_cards("hard", count)
-    medium = get_cards("medium", count)
-    easy = get_cards("easy", count)
+    # Due cards take absolute priority
+    due_query = db.query(FlashcardModel).filter(FlashcardModel.next_review_at <= now)
+    if domain:
+        due_query = due_query.filter(FlashcardModel.domain == domain)
+    due = due_query.order_by(FlashcardModel.next_review_at.asc()).limit(count).all()
 
-    session_cards = []
-    for card_list in [hard, medium, easy]:
-        for card in card_list:
-            if len(session_cards) >= count:
-                break
-            if card not in session_cards:
-                session_cards.append(card)
+    session_cards = list(due)
+
+    # Fill remaining slots with hard → medium → easy
+    if len(session_cards) < count:
+        for difficulty in ["hard", "medium", "easy"]:
+            for card in get_cards(difficulty, count):
+                if len(session_cards) >= count:
+                    break
+                if card not in session_cards:
+                    session_cards.append(card)
 
     return {
         "session_cards": [FlashcardOut.from_orm(f) for f in session_cards],
         "count": len(session_cards),
+        "due_count": len(due),
         "domain": domain,
-        "priority_order": "hard → medium → easy"
+        "priority_order": "due → hard → medium → easy"
     }
 
 
@@ -504,4 +545,28 @@ def get_stats(db: Session = Depends(get_db)):
         "domain_breakdown": domain_breakdown,
         "patterns_available": len(PATTERNS),
         "domains_supported": list(DOMAIN_KEYWORDS.keys())
+    }
+
+@app.get("/api/study/due", tags=["Flashcards"])
+def get_due_cards(domain: Optional[str] = None, db: Session = Depends(get_db)):
+    """
+    Returns all flashcards due for review right now.
+    This is the spaced repetition scheduler.
+    """
+    from datetime import timedelta
+    now = datetime.utcnow()
+
+    query = db.query(FlashcardModel).filter(
+        FlashcardModel.next_review_at <= now
+    )
+    if domain:
+        query = query.filter(FlashcardModel.domain == domain)
+
+    due_cards = query.order_by(FlashcardModel.next_review_at.asc()).all()
+
+    return {
+        "due_cards": [FlashcardOut.from_orm(f) for f in due_cards],
+        "due_count": len(due_cards),
+        "checked_at": now.isoformat(),
+        "message": f"{len(due_cards)} cards due for review"
     }
